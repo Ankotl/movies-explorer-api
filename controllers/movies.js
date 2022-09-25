@@ -52,7 +52,7 @@ const deleteMovie = (req, res, next) => {
     .orFail(() => next(new ErrorNotFound('Не найден фильм по указаному id')))
     .then((movie) => {
       if (!movie.owner.equals(req.user._id)) {
-        next(new ForbiddenError('Ytn ljcnegf'));
+        next(new ForbiddenError('Нет прав для удаления фильма'));
       } else {
         movie.remove()
           .then(() => res.send({ message: movie }))

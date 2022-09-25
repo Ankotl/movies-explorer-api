@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
 
+const { MONGODB_ADRESS = '//localhost:27017/bitfilmsdb', PORT = 3010 } = process.env;
+
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const router = require('./routes');
@@ -24,9 +26,8 @@ const options = {
 };
 
 const app = express();
-const { PORT = 3010 } = process.env;
 
-mongoose.connect('mongodb://localhost:27017/bitfilmsdb');
+mongoose.connect(`mongodb:${MONGODB_ADRESS}`);
 
 app.use(cors(options));
 app.use(express.json());
