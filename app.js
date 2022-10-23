@@ -17,6 +17,9 @@ const { validationLogin, validationCreateUser } = require('./middlewares/validat
 const options = {
   origin: [
     'http://localhost:3000',
+    'http://akotlyakov.kino.nomoredomains.club',
+    'https://akotlyakov.kino.nomoredomains.club',
+    'https://Ankotl.github.io',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
